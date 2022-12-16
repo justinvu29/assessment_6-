@@ -19,12 +19,12 @@ app.use(express.json())
 app.use(express.static('public')) 
 
 app.get('/', (req,res) => {
-    res.status(200).sendFile(path.join(__dirname, '../public/index.html'))
+    res.status(200).sendFile(path.join(__dirname, './public/index.html'))
 })
 
 app.get('/api/robots', (req, res) => {
     try {
-        res.status(200).send(botsArr)
+        res.status(200).send(bots)
         rollbar.info('bot list was requested and sent')
     } catch (error) {
         console.log('ERROR GETTING BOTS', error) 
